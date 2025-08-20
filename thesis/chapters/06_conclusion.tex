@@ -1,0 +1,94 @@
+\chapter{Conclusion}
+We have introduced a recipe for training neural networks 
+using an optimizer based on the \acf{GLD}
+algorithm \parencite{gld}. 
+Being a zeroth-order
+optimization algorithm, \ac{GLD} does not 
+make use of gradient information when updating 
+parameters. This removes the 
+need for a backward pass on the network, which can have 
+a significant impact on memory consumption.
+\ac{GLD} is a direct search method, which means that
+unlike many state-of-the-art zeroth-order 
+optimizers that have been used with neural networks, 
+our method does not rely on an estimation of the 
+gradient and instead selects parameter updates 
+from a set of randomly sampled perturbations
+of the parameter. 
+We think that direct search methods have the potential
+to create memory-efficient optimizers of neural 
+networks, which motivates our work.
+
+A known limitation of direct search methods is that 
+their performance deteriorates as the number of variables 
+increases \parencite{directsearch}. 
+Our main contribution is introducing a parameter 
+partitioning method to split the set of trainable 
+parameters of the model into smaller subsets in order
+to bypass this limitation. 
+% in order to bypass a known limitation of direct 
+% search methods, which is that their 
+% performance deteriorates as the number of variables 
+% increases \parencite{directsearch}. 
+The size of the 
+subsets is chosen empirically to be sufficiently small, such 
+that \ac{GLD} is able to train an individual subset
+with a reasonable rate of convergence.
+% Training one subset at a time, we are then able to train 
+% the entire network. 
+We are then able to train the entire network by 
+cycling through the subsets in each iteration, 
+training one subset at a time. Our method takes each
+individual weight matrix and bias vector as a subset, 
+which is further divided if the size is too large
+by selecting parameters either randomly or
+based on importance, using the absolute value or
+an estimation of the Fisher importance matrix
+as the importance measure. 
+
+We also propose additional modifications on the algorithm 
+with the aim of  
+further improving its performance.
+We introduce radius scheduling, the application 
+of a learning rate schedule onto the maximal
+search radius of \ac{GLD}, and 
+weight decay, which adds an $L_2$-norm regularizer 
+to the objective function. Both methods are motivated 
+by their established 
+success in improving first-order methods and our 
+experiments show that they are applicable 
+for direct search methods as well. We introduce 
+options, which is a method that implements 
+a lookahead into potential future updates that are then
+considered when choosing the current update. 
+We apply options as a way to choose parameter updates 
+that are more representative of the entire 
+training dataset without increasing the batch size. 
+
+To test our methods, we
+fine-tune a classifier attached to a pre-trained
+DistilBERT model for the binary 
+classification task given by the SST-2 dataset. 
+We obtain
+our best results by using 
+% a combination of our methods. 
+both radius scheduling and weight decay on top of 
+our main parameter partitioning method where we 
+pick parameters at random when the weight matrix is 
+too large. 
+When compared to Adam, our method gives slightly reduced 
+accuracy while using less memory. The difference in 
+accuracy seems to decrease as batch size increases.
+We identify the slow speed of our algorithm as 
+a major drawback. We think that future 
+work can both further close the accuracy gap to 
+state-of-the-art first-order methods and 
+speed up the algorithm, addressing this drawback.
+
+
+% with a small reduction in accuracy
+% compared to Adam, 
+% a state-of-the-art first-order optimizer. 
+
+% Eliminating the backward pass has a 
+% significant positive impact on memory consumption. 

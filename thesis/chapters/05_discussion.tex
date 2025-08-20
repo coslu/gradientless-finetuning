@@ -1,0 +1,204 @@
+\chapter{Discussion \& Future Work} \label{chapter:discussion}
+This chapter evaluates our approaches and suggests 
+future research directions that arise from our work.
+We will discuss the strengths and shortcomings 
+of our methods, as well as possible modifications that 
+might improve the effectiveness and experiments that might 
+provide useful results. 
+% Then, we will put forward
+% new ideas that can improve the efficiency and reliability
+% of direct search methods for language model fine-tuning.
+
+Our experiments show that the effectiveness of our methods
+depends largely on batch size where larger batch sizes 
+consistently perform better. This outcome is hardly 
+surprising as it has already been established for 
+gradient methods that larger batch sizes result in better 
+parameter updates by giving descent directions more
+representative of the entire dataset, reducing the
+probability of choosing parameters that give a worse 
+overall representation.  We suspect that 
+this effect might be amplified for direct search methods
+since random parameter updates that do not make use of 
+gradient information are also not necessarily in the 
+optimal descent direction for a given batch. 
+% by reducing the variance of the 
+% gradient. While the effects are similar for 
+% direct search methods, we suspect that
+% the effect of batch size in reducing
+% the probability of choosing parameters that give
+% a worse representation of the dataset is amplified.
+% Random parameter updates that do not make use of gradient
+% information are not necessarily in the 
+% optimal descent direction for a given batch. 
+% we suspect that 
+% the importance of batch size is amplified
+% with random parameter updates to reduce the probability 
+% of choosing updates that give a worse representation of 
+% the whole dataset. 
+% as random parameter updates that 
+% do not make use of gradient information
+% inherently have high variance. 
+This might make it a necessity to 
+pick a larger batch size than a first-order
+method in order to be able to compete with it. 
+This of course seems counter-productive considering our 
+main objective of reducing memory consumption. However,
+for larger networks, the memory gains from 
+eliminating backpropagation can offset
+the additional memory usage due to the larger batch size.
+On the other hand, our experiments on the Adam optimizer
+did not yield a better accuracy when we increased the 
+batch size, which might indicate that for larger 
+batch sizes, the performance of our method could 
+be on the same level as that of first-order methods using the same 
+batch size.
+In any case, experimenting with larger batch sizes 
+can provide valuable data.   
+
+% While that outcome is 
+% hardly surprising, we suspect that for stochastic 
+% derivative-free methods the importance of 
+% batch size is amplified and 
+% It has already been established for gradient methods
+% that larger batch sizes give better parameter updates
+% as they reduce the variance of the gradient. 
+
+Our method of partitioning parameters might not be
+optimal. Since we first consider individual tensors
+as a unit of training and only then 
+further partition a unit if it is too large, 
+our algorithms might spend excessive time 
+on some parameters while seldom updating others.
+For example, our algorithm considers the same number of 
+perturbations for the $1\times2$ 
+bias of the output layer
+as the $768\times768$ weight matrix of the hidden layer,
+of which only a smaller partition of size $s=768\times2$ 
+is optimized in each step. 
+A more clever way of splitting trainable parameters 
+could gain efficiency in terms of convergence rate.
+One could, for example, consider the entire set of 
+trainable parameters as a single large unit and 
+select $s$ indices at random from that large unit 
+to train each step. 
+While our original method stems from initial intuition 
+and ease of implementation, it can also have the 
+advantage of making sure all weights and biases of 
+the network are trained in each step. 
+
+The number of parameters $s$ we select to train from 
+from the large weight matrix is decided empirically. 
+It copies the size of the second largest weight matrix 
+that we train, because we have seen through 
+experimentation that a matrix of that size could be trained 
+by our algorithm. 
+It is known that direct search methods lose 
+performance with larger parameter dimensions and our 
+experiments in \autoref{section:partition} confirm 
+that training the entire $768\times768$ matrix 
+is not feasible with our algorithm. However,
+there could be a better value 
+for $s$. We expect that with smaller $s$, the algorithm
+will still learn but with a slower convergence rate 
+as fewer parameters are optimized each step. 
+Conversely, larger values could provide faster 
+convergence, but performance will suffer when $s$ is 
+too large. Experimenting with both smaller and 
+larger values of $s$ could lead to a better understanding
+of the effects of dimensionality on the algorithm.
+
+We designed the method of using options as a way to 
+direct the algorithm towards parameter updates that 
+give a better representation of the entire dataset
+without increasing the batch size. Our experiments
+indicate that using options improves loss with no
+additional memory cost. However, there is a 
+significant increase in time cost as the number
+of forward passes increases. Whether or not options 
+should be used depends therefore on time 
+constraints. Using deeper levels of options 
+could bring further improvement, however becomes 
+less practical as time usage will be excessive 
+compared to a similarly performing first-order method.
+It could also be interesting to 
+see how the performance gains are affected by batch size.
+Since larger batch sizes are already more representative 
+of the entire dataset, improvements brought 
+by options might become less impactful.
+
+We find that using the linear radius schedule we define in
+\autoref{section:schedule} as well as weight decay, 
+we achieve better results 
+by increasing the initial radius. 
+One could increase the minimal
+multiplier $h$ of the scheduler for a flatter schedule where maximal
+radius changes slower in a smaller interval 
+throughout training. It could also be interesting to 
+experiment 
+with different types of schedule function such as cosine 
+annealing \parencite{cosine} or to apply a warmup 
+strategy \parencite{warmup}. 
+
+One weakness of getting parameter updates 
+solely through random perturbations is that 
+previous update steps are not considered. 
+Intuitively, an update direction that 
+has improved the model in one training iteration 
+should be more likely to improve it further 
+than, for example, the exact opposite direction. 
+Our algorithm, however, cannot
+make use of this assumption and samples both 
+directions with the same probability when searching for 
+improving perturbations. 
+A possible improvement is to implement a
+system similar to momentum that factors in previous 
+update directions when calculating random 
+perturbations. 
+Update candidates could then be computed by adding
+a vector accumulating previous updates with some 
+momentum coefficient to the random perturbation 
+sampled from the original distribution, effectively
+shifting the distribution towards the region of 
+perturbation vectors that have 
+previously improved the model. 
+The amount of improvement an update brings could 
+also be part of the formulation. We think that 
+being able to select better candidates to consider
+is an important step to optimizing the algorithm for time  
+and that the described approach or a derivative thereof
+can improve the convergence 
+rate by making it more likely 
+for a sampled candidate to be improving the model.
+
+Introducing parallelism could be another way of 
+optimizing the algorithm for time. The key factor
+making the algorithm slow is the large number of forward
+passes it requires. Each training step requires multiple
+forward passes with the same batch. Computing  
+those in separate processing units or 
+threads of execution can speed up 
+the algorithm significantly. 
+% The forward passes of a training
+% step could be computed 
+% in separate processing units or threads of execution.
+
+% It is 
+% likely that an update direction that has improved the
+% model in one training iteration, improves it further
+
+  
+
+% momentum like SMTP 
+% fine tune base model (with K=1?)
+% better gpu usage / parallelism
+% even higher batch size experiment  
+
+% options no memory but time - worth?
+% scheduling - maybe with bigger max-r?, 
+% more effective with / could allow smaller K.
+% batch size - critical. more critical than with gradient?
+% partitioning - could be more efficient. 
+% training 2 parameters for bias.
+% number of parameters to train completely empirical, 
+% might not be ideal. 

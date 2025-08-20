@@ -1,0 +1,95 @@
+\chapter{Introduction}\label{chapter:introduction}
+
+Neural Networks are powerful machine 
+learning models that have been shown to 
+yield state-of-the-art results 
+in the field of \acf{NLP} \parencite{goldberg2016primer}.
+Recently, the Transformer \parencite{transformer}
+has been adopted as a conventional architecture for 
+creating language models. Transformer models such as 
+BERT \parencite{bert} have been shown to learn 
+comprehensive information about language when trained on 
+unsupervised language modeling tasks with 
+large amounts of data. Representations
+learned by these models are useful for a wide variety of 
+tasks and the same pre-trained model can be fine-tuned 
+for different tasks by adding an appropriate output layer
+and training it on a smaller, task-specific dataset. 
+
+A neural network model is trained by iteratively updating
+its parameters in order to minimize a 
+loss function measuring the error between 
+observed data and the model output. 
+The standard method of training
+relies on the backpropagation algorithm 
+\parencite{backprop} to calculate the gradient 
+of the loss function w.r.t the parameters 
+of the model. The gradient is used to find the descent 
+direction and parameters are moved in that
+direction to minimize the loss. 
+
+In general, optimization algorithms that make use of 
+the gradient are called first-order methods referring
+to the order of the used derivatives. 
+There are also zeroth-order
+methods that only need to evaluate a function at 
+different points in order to optimize it. Zeroth-order
+methods have proven to be useful in generating
+adversarial examples for machine learning 
+systems \parencite{adversarial} as well as in 
+automated machine learning research \parencite{automl}.
+They can also be used when gradient calculation 
+is infeasible or impractical \parencite{primer-zo}. 
+
+Many zeroth-order
+methods such as ZO-SGD \parencite{spsa}, 
+ZO-AdaMM \parencite{zoadamm} and MeZO \parencite{mezo}
+calculate an estimation of the gradient using 
+finite difference approximations, which can then be used
+in the place of the gradient. As such, these algorithms 
+are easily implemented by only slightly modifying 
+common first-order methods \parencite{primer-zo}. 
+Other zeroth-order algorithms, such as 
+\ac{STP} \parencite{stp} and \acf{GLD} \parencite{gld}, 
+perform a search in a small radius around a parameter 
+and update it to the best candidate. 
+Algorithms from this class are called direct search 
+methods. 
+Direct search methods are not often used for the purpose
+of training neural networks as they do not scale well 
+to large-size problems \parencite{directsearch}. 
+
+Training large neural networks can be costly 
+in terms of memory. 
+Reducing the memory usage can be beneficial to make 
+research more accessible by making neural network training 
+possible on systems with limited computational resources.
+Recent approaches reduce the model size by pruning
+neurons from the network \parencite{pruning}, 
+train smaller models with the help of larger pre-trained 
+models using knowledge distillation \parencite{distillation}
+or reduce the memory usage of fine-tuning by training only 
+a small subset of parameters \parencite{peft}. 
+
+This work
+aims to reduce the memory consumption of fine-tuning 
+by using a gradientless optimization method, eliminating 
+the need for backpropagation. In doing so, 
+we also want to investigate the potential of 
+direct search methods to train neural networks. We 
+introduce an algorithm based on \ac{GLD} that can 
+effectively bypass the limitations of direct search methods 
+on problem size. Using
+our algorithm, we fine-tune a feed-forward network 
+attached to a pre-trained DistilBERT 
+model \parencite{distilbert} on the SST-2 dataset 
+\parencite{sst2} and obtain 
+a validation accuracy comparable to that of an 
+Adam optimizer \parencite{adam} while using less memory.
+
+% Recently there has been 
+% a growing interest in reducing the size of neural
+% network models in order to make training possible
+% on systems with limited computational resources
+
+

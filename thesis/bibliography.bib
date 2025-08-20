@@ -1,0 +1,527 @@
+@book{jurafsky,
+  author         = {Daniel Jurafsky and James H. Martin},
+  title          = {Speech and Language Processing},
+  subtitle = {An Introduction to Natural Language Processing,
+Computational Linguistics, and Speech Recognition},
+  year           = {2024},
+  month          = {2},
+  url = {https://web.stanford.edu/~jurafsky/slp3/},
+  edition = {Third Edition Draft},
+  urldate = {2024-05-30}
+}
+
+@article{goldberg2016primer,
+  title={A primer on neural network models for natural language processing},
+  author={Goldberg, Yoav},
+  journal={Journal of Artificial Intelligence Research},
+  volume={57},
+  pages={345--420},
+  year={2016}
+}
+
+@book{neuronbook,
+  author         = {Ke-Lin Du and M. N. S. Swamy},
+  publisher      = {Springer London},
+  title          = {Neural Networks and Statistical Learning},
+  year           = {2019},
+  isbn           = {978-1-4471-7452-3},
+  edition        = {2},
+}
+
+@article{mcculloch,
+  author          = {McCulloch, W. S. and Pitts, W.},
+  journal         = {Bulletin of Mathematical Biology},
+  number          = {5},
+  title           = {A logical calculus of the ideas immanent in nervous
+activity},
+  year            = {1943},
+  pages           = {115-133},
+}
+
+@book{perceptronbook,
+  author         = {Andrzej Bielecki},
+  publisher      = {Springer Cham},
+  title          = {Models of Neurons and Perceptrons: Selected Problems and Challenges},
+  year           = {2019},
+  isbn           = {978-3-319-90140-4},
+  chapter        = {3},
+  pages          = {15},
+}
+
+@book{deeplearningbook,
+    title={Deep Learning},
+    author={Ian Goodfellow and Yoshua Bengio and Aaron Courville},
+    publisher={MIT Press},
+    url={http://www.deeplearningbook.org},
+    year={2016}
+}
+
+@article{capacity,
+  author={Widrow, B. and Lehr, M.A.},
+  journal={Proceedings of the IEEE}, 
+  title={30 years of adaptive neural networks: perceptron, Madaline, and backpropagation}, 
+  year={1990},
+  volume={78},
+  number={9},
+  pages={1415-1442},
+  keywords={Adaptive systems;Neural networks;Subspace constraints;Artificial neural networks;Backpropagation algorithms;History;Least squares approximation;Biological system modeling;Machine learning;Pattern recognition},
+  doi={10.1109/5.58323}}
+
+@ARTICLE{regularization,
+  author={Reed, R. and Marks, R.J. and Oh, S.},
+  journal={IEEE Transactions on Neural Networks}, 
+  title={Similarities of error regularization, sigmoid gain scaling, target smoothing, and training with jitter}, 
+  year={1995},
+  volume={6},
+  number={3},
+  pages={529-538},
+  keywords={Smoothing methods;Jitter;Convolution;Training data;Sampling methods;Noise cancellation;Performance gain;Costs;Probability density function;Lagrangian functions},
+  doi={10.1109/72.377960}}
+
+@article{directsearch,
+author = {Kolda, Tamara G. and Lewis, Robert Michael and Torczon, Virginia},
+title = {Optimization by Direct Search: New Perspectives on Some Classical and Modern Methods},
+journal = {SIAM Review},
+volume = {45},
+number = {3},
+pages = {385-482},
+year = {2003},
+doi = {10.1137/S003614450242889}
+}
+
+@incollection{backprop,
+    author = {Rumelhart, D. E. and Hinton, G. E. and Williams, R. J.},
+    isbn = {9780262291408},
+    title = "{Learning Internal Representations by Error Propagation}",
+    booktitle = "{Parallel Distributed Processing, Volume 1: Explorations in the Microstructure of Cognition: Foundations}",
+    publisher = {The MIT Press},
+    year = {1986},
+    month = {07},
+    doi = {10.7551/mitpress/5236.003.0012},
+}
+
+@article{minibatch,
+  author  = {Junhong Lin and Lorenzo Rosasco},
+  title   = {Optimal Rates for Multi-pass Stochastic Gradient Methods},
+  journal = {Journal of Machine Learning Research},
+  year    = {2017},
+  volume  = {18},
+  number  = {97},
+  pages   = {1-47},
+  url     = {http://jmlr.org/papers/v18/17-176.html}
+}
+
+@inproceedings{minibatch2,
+  author       = {Nitish Shirish Keskar and
+                  Dheevatsa Mudigere and
+                  Jorge Nocedal and
+                  Mikhail Smelyanskiy and
+                  Ping Tak Peter Tang},
+  title        = {On Large-Batch Training for Deep Learning: Generalization Gap and
+                  Sharp Minima},
+  booktitle    = {5th International Conference on Learning Representations, {ICLR} 2017,
+                  Toulon, France, April 24-26, 2017, Conference Track Proceedings},
+  year         = {2017},
+}
+
+
+@InProceedings{momentum-sutskever,
+  title = 	 {On the importance of initialization and momentum in deep learning},
+  author = 	 {Sutskever, Ilya and Martens, James and Dahl, George and Hinton, Geoffrey},
+  booktitle = 	 {Proceedings of the 30th International Conference on Machine Learning},
+  pages = 	 {1139--1147},
+  year = 	 {2013},
+  editor = 	 {Dasgupta, Sanjoy and McAllester, David},
+  volume = 	 {28},
+  number =       {3},
+  series = 	 {Proceedings of Machine Learning Research},
+  address = 	 {Atlanta, Georgia, USA},
+  month = 	 {6},
+  publisher =    {PMLR},
+  pdf = 	 {http://proceedings.mlr.press/v28/sutskever13.pdf},
+  url = 	 {https://proceedings.mlr.press/v28/sutskever13.html},
+  abstract = 	 {Deep and recurrent neural networks (DNNs and RNNs respectively) are powerful models that were considered to be almost impossible to train using stochastic gradient descent with momentum. In this paper, we show that when stochastic gradient descent with momentum uses a well-designed random initialization and a particular type of slowly increasing schedule for the momentum parameter, it can train both DNNs and RNNs (on datasets with long-term dependencies) to levels of performance that were previously achievable only with Hessian-Free optimization. We find that both the initialization and the momentum are crucial since poorly initialized networks cannot be trained with momentum and well-initialized networks perform markedly worse when the momentum is absent or poorly tuned.     Our success training these models suggests that previous attempts to train deep and recurrent neural networks from random initializations have likely failed due to poor initialization schemes. Furthermore, carefully tuned momentum methods suffice for dealing with the curvature issues in deep and recurrent network training objectives without the need for sophisticated second-order methods.   }
+}
+
+@article{momentum-polyak,
+  author = {Polyak, Boris},
+  year = {1964},
+  month = {12},
+  pages = {1-17},
+  title = {Some methods of speeding up the convergence of iteration methods},
+  volume = {4},
+  journal = {Ussr Computational Mathematics and Mathematical Physics},
+  doi = {10.1016/0041-5553(64)90137-5}
+}
+
+@article{nesterov,
+  title={A method for solving the convex programming problem with convergence rate {$O(\frac{1}{k^2})$}},
+  author={Yurii Nesterov},
+  journal={Proceedings of the USSR Academy of Sciences},
+  year={1983},
+  volume={269},
+  pages={543-547}
+}
+
+@article{adam,
+author = {Kingma, Diederik and Ba, Jimmy},
+year = {2014},
+month = {12},
+title = {Adam: A Method for Stochastic Optimization},
+journal = {International Conference on Learning Representations}
+}
+
+@book{optimizationbook,
+  author         = {Boris Polyak},
+  publisher      = {Optimization Software},
+  title          = {Introduction to Optimization},
+  year           = {1987},
+  isbn           = {0-911575-14-6},
+}
+
+@book{optimizationbook2,
+  author         = {Philip E. Gill and Walter Murray and Margaret H. Wright},
+  publisher      = {Academic Press},
+  title          = {Practical Optimization},
+  year           = {1981},
+  isbn           = {0-12-283952-8}
+}
+
+@ARTICLE{spsa,
+  author={Spall, J.C.},
+  journal={IEEE Transactions on Automatic Control}, 
+  title={Multivariate stochastic approximation using a simultaneous perturbation gradient approximation}, 
+  year={1992},
+  volume={37},
+  number={3},
+  pages={332-341},
+  doi={10.1109/9.119632}
+}
+
+@article{KieferWolfowitz,
+  title={Stochastic Estimation of the Maximum of a Regression Function},
+  author={J. Kiefer and Jacob Wolfowitz},
+  journal={Annals of Mathematical Statistics},
+  year={1952},
+  volume={23},
+  pages={462-466}
+}
+
+@misc{finitediffpaper,
+      title={Generalized Simultaneous Perturbation-based Gradient Search with Reduced Estimator Bias}, 
+      author={Soumen Pachal and Shalabh Bhatnagar and L. A. Prashanth},
+      year={2023},
+      eprint={2212.10477},
+      archivePrefix={arXiv}
+}
+
+@inproceedings{mezo,
+ author = {Malladi, Sadhika and Gao, Tianyu and Nichani, Eshaan and Damian, Alex and Lee, Jason D and Chen, Danqi and Arora, Sanjeev},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
+ pages = {53038--53075},
+ publisher = {Curran Associates, Inc.},
+ title = {Fine-Tuning Language Models with Just Forward Passes},
+ volume = {36},
+ year = {2023}
+}
+
+@inproceedings{zosignsgd,
+  title={sign{SGD} via Zeroth-Order Oracle},
+  author={Sijia Liu and Pin-Yu Chen and Xiangyi Chen and Mingyi Hong},
+  booktitle={International Conference on Learning Representations},
+  year={2019}
+}
+
+@article{zoadamm,
+  title={Zo-adamm: Zeroth-order adaptive momentum method for black-box optimization},
+  author={Chen, Xiangyi and Liu, Sijia and Xu, Kaidi and Li, Xingguo and Lin, Xue and Hong, Mingyi and Cox, David},
+  journal={Advances in neural information processing systems},
+  volume={32},
+  year={2019}
+}
+
+@inproceedings{signsgd,
+  title={signSGD: Compressed optimisation for non-convex problems},
+  author={Bernstein, Jeremy and Wang, Yu-Xiang and Azizzadenesheli, Kamyar and Anandkumar, Animashree},
+  booktitle={International Conference on Machine Learning},
+  pages={560--569},
+  year={2018},
+  organization={PMLR}
+}
+
+@inproceedings{amsgrad,
+  title={On the Convergence of Adam and Beyond},
+  author={Sashank J. Reddi and Satyen Kale and Sanjiv Kumar},
+  booktitle={International Conference on Learning Representations},
+  year={2018}
+}
+
+@inproceedings{gld,
+  title={Gradientless Descent: High-Dimensional Zeroth-Order Optimization},
+  author={Golovin, Daniel and Karro, John and Kochanski, Greg and Lee, Chansoo and Song, Xingyou and Zhang, Qiuyi Richard},
+  booktitle={International Conference on Learning Representations},
+  year={2020}
+}
+
+@article{stp,
+  title={Stochastic three points method for unconstrained smooth minimization},
+  author={Bergou, El Houcine and Gorbunov, Eduard and Richt{\'a}rik, Peter},
+  journal={SIAM Journal on Optimization},
+  volume={30},
+  number={4},
+  pages={2726--2749},
+  year={2020},
+  publisher={SIAM}
+}
+
+@inproceedings{smtp,
+  title={A stochastic derivative free optimization method with momentum},
+  author={Gorbunov, Eduard and Bibi, Adel and Sener, Ozan and Bergou, El Houcine and Richt{\'a}rik, Peter},
+  booktitle={International Conference on Learning Representations},
+  year={2020}
+}
+
+@inproceedings{sst2,
+    title = "Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank",
+    author = "Socher, Richard  and
+      Perelygin, Alex  and
+      Wu, Jean  and
+      Chuang, Jason  and
+      Manning, Christopher D.  and
+      Ng, Andrew  and
+      Potts, Christopher",
+    booktitle = "Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing",
+    month = oct,
+    year = "2013",
+    address = "Seattle, Washington, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/D13-1170",
+    pages = "1631--1642",
+}
+
+@misc{distilbert,
+      title={DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter}, 
+      author={Victor Sanh and Lysandre Debut and Julien Chaumond and Thomas Wolf},
+      year={2020},
+      eprint={1910.01108},
+      archivePrefix={arXiv}
+}
+
+@article{roberta,
+  author    = {Yinhan Liu and
+               Myle Ott and
+               Naman Goyal and
+               Jingfei Du and
+               Mandar Joshi and
+               Danqi Chen and
+               Omer Levy and
+               Mike Lewis and
+               Luke Zettlemoyer and
+               Veselin Stoyanov},
+  title     = {RoBERTa: {A} Robustly Optimized {BERT} Pretraining Approach},
+  journal   = {CoRR},
+  volume    = {abs/1907.11692},
+  year      = {2019},
+  archivePrefix = {arXiv},
+  eprint    = {1907.11692},
+  timestamp = {Thu, 01 Aug 2019 08:59:33 +0200},
+  biburl    = {https://dblp.org/rec/journals/corr/abs-1907-11692.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@ARTICLE{fisher,
+  author={Berisha, Visar and Hero, Alfred O.},
+  journal={IEEE Signal Processing Letters}, 
+  title={Empirical Non-Parametric Estimation of the Fisher Information}, 
+  year={2015},
+  volume={22},
+  number={7},
+  pages={988-992},
+  doi={10.1109/LSP.2014.2378514}}
+
+
+@INPROCEEDINGS{fisher-reduction,
+  author={Tu, Ming and Berisha, Visar and Woolf, Martin and Seo, Jae-sun and Cao, Yu},
+  booktitle={2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+  title={Ranking the parameters of deep neural networks using the fisher information}, 
+  year={2016},
+  pages={2647-2651},
+  doi={10.1109/ICASSP.2016.7472157}
+  }
+
+@inproceedings{weight-pruning,
+ author = {Han, Song and Pool, Jeff and Tran, John and Dally, William},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {C. Cortes and N. Lawrence and D. Lee and M. Sugiyama and R. Garnett},
+ publisher = {Curran Associates, Inc.},
+ title = {Learning both Weights and Connections for Efficient Neural Network},
+ volume = {28},
+ year = {2015}
+}
+
+@inproceedings{redundant-parameter,
+ author = {Denil, Misha and Shakibi, Babak and Dinh, Laurent and Ranzato, Marc\textquotesingle Aurelio and de Freitas, Nando},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. Weinberger},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Predicting Parameters in Deep Learning},
+ volume = {26},
+ year = {2013}
+}
+
+@article{fm,
+  title={Multivariate generalizations of the Wald-Wolfowitz and Smirnov two-sample tests},
+  author={Friedman, Jerome H and Rafsky, Lawrence C},
+  journal={The Annals of Statistics},
+  pages={697--717},
+  year={1979},
+  publisher={JSTOR}
+}
+
+@inproceedings{bert,
+    title = "{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+    author = "Devlin, Jacob  and
+      Chang, Ming-Wei  and
+      Lee, Kenton  and
+      Toutanova, Kristina",
+    editor = "Burstein, Jill  and
+      Doran, Christy  and
+      Solorio, Thamar",
+    booktitle = "Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+    month = jun,
+    year = "2019",
+    address = "Minneapolis, Minnesota",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/N19-1423",
+    doi = "10.18653/v1/N19-1423",
+    pages = "4171--4186",
+    abstract = "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5 (7.7 point absolute improvement), MultiNLI accuracy to 86.7{\%} (4.6{\%} absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).",
+}
+
+@inproceedings{transformer,
+ author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, \L ukasz and Polosukhin, Illia},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Attention is All you Need},
+ volume = {30},
+ year = {2017}
+}
+
+@article{translation,
+  title={Neural Machine Translation by Jointly Learning to Align and Translate}, 
+  author={Dzmitry Bahdanau and Kyunghyun Cho and Yoshua Bengio},
+  year={2015},
+  journal={ICLR},
+  eprint={1409.0473},
+  archivePrefix={arXiv}
+}
+
+@INPROCEEDINGS{residual,
+  author={He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  booktitle={2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+  title={Deep Residual Learning for Image Recognition}, 
+  year={2016},
+  pages={770-778},
+  doi={10.1109/CVPR.2016.90}
+}
+
+@misc{layernorm,
+      title={Layer Normalization}, 
+      author={Jimmy Lei Ba and Jamie Ryan Kiros and Geoffrey E. Hinton},
+      year={2016},
+      eprint={1607.06450},
+      archivePrefix={arXiv}
+}
+
+@inproceedings{cosine,
+  author       = {Ilya Loshchilov and
+                  Frank Hutter},
+  title        = {{SGDR:} Stochastic Gradient Descent with Warm Restarts},
+  booktitle    = {5th International Conference on Learning Representations, {ICLR} 2017,
+                  Toulon, France, April 24-26, 2017, Conference Track Proceedings},
+  year         = {2017},
+}
+
+@article{translation,
+  title={Neural Machine Translation by Jointly Learning to Align and Translate}, 
+  author={Dzmitry Bahdanau and Kyunghyun Cho and Yoshua Bengio},
+  year={2015},
+  journal={ICLR},
+  eprint={1409.0473},
+  archivePrefix={arXiv}
+}
+
+@misc{warmup,
+      title={Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour}, 
+      author={Priya Goyal and Piotr Dollár and Ross Girshick and Pieter Noordhuis and Lukasz Wesolowski and Aapo Kyrola and Andrew Tulloch and Yangqing Jia and Kaiming He},
+      year={2018},
+      eprint={1706.02677},
+      archivePrefix={arXiv}
+}
+
+@inproceedings{adversarial,
+author = {Chen, Pin-Yu and Zhang, Huan and Sharma, Yash and Yi, Jinfeng and Hsieh, Cho-Jui},
+title = {ZOO: Zeroth Order Optimization Based Black-box Attacks to Deep Neural Networks without Training Substitute Models},
+year = {2017},
+isbn = {9781450352024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+doi = {10.1145/3128572.3140448},
+booktitle = {Proceedings of the 10th ACM Workshop on Artificial Intelligence and Security},
+pages = {15–26},
+numpages = {12},
+location = {Dallas, Texas, USA},
+series = {AISec '17}
+}
+
+@article{automl,
+author = {Liu, Sijia and Ram, Parikshit and Vijaykeerthy, Deepak and Bouneffouf, Djallel and Bramble, Gregory and Samulowitz, Horst and Wang, Dakuo and Conn, Andrew and Gray, Alexander},
+year = {2020},
+month = {04},
+pages = {4892-4899},
+title = {An ADMM Based Framework for AutoML Pipeline Configuration},
+volume = {34},
+journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+doi = {10.1609/aaai.v34i04.5926}
+}
+
+@ARTICLE{primer-zo,
+  author={Liu, Sijia and Chen, Pin-Yu and Kailkhura, Bhavya and Zhang, Gaoyuan and Hero III, Alfred O. and Varshney, Pramod K.},
+  journal={IEEE Signal Processing Magazine}, 
+  title={A Primer on Zeroth-Order Optimization in Signal Processing and Machine Learning: Principals, Recent Advances, and Applications}, 
+  year={2020},
+  volume={37},
+  number={5},
+  pages={43-54},
+  keywords={Optimization;Estimation;Signal processing algorithms;Linear programming;Signal processing;Convergence;Approximation error},
+  doi={10.1109/MSP.2020.3003837}
+}
+
+@misc{pruning,
+      title={A Survey on Deep Neural Network Pruning-Taxonomy, Comparison, Analysis, and Recommendations}, 
+      author={Hongrong Cheng and Miao Zhang and Javen Qinfeng Shi},
+      year={2023},
+      eprint={2308.06767},
+      archivePrefix={arXiv}
+}
+
+@misc{distillation,
+      title={Distilling the Knowledge in a Neural Network}, 
+      author={Geoffrey Hinton and Oriol Vinyals and Jeff Dean},
+      year={2015},
+      eprint={1503.02531},
+      archivePrefix={arXiv}
+}
+
+@misc{peft,
+      title={Scaling Down to Scale Up: A Guide to Parameter-Efficient Fine-Tuning}, 
+      author={Vladislav Lialin and Vijeta Deshpande and Anna Rumshisky},
+      year={2023},
+      eprint={2303.15647},
+      archivePrefix={arXiv}
+}
