@@ -1,8 +1,11 @@
-# Masters Thesis Baris Coslu: Gradientless Optimization for Language Model Finetuning
+# Master's Thesis Baris Coslu: Gradientless Optimization for Language Model Finetuning
 
 ## Abstract
 
 Transformer models pre-trained on large amounts of data have become the standard method of building powerful language models in Natural Language Processing (NLP) research. These models incorporate comprehensive information about language, allowing them to be fine-tuned for a wide variety of tasks using a smaller, task-specific dataset without substantial modifications on the architecture. This work aims to explore gradientless optimization methods that can be utilized in the context of language model fine-tuning. In particular, it investigates the feasibility of using direct search methods based on random perturbations of parameter tensors as an alternative to state-of-the-art first-order optimizers for the fine-tuning of pre-trained language models. We introduce a direct search method based on an adaptation of the Gradientless Descent (GLD) algorithm. Our method can fine-tune a DistilBERT model on the SST-2 dataset using less memory than an Adam optimizer in exchange for a small reduction in validation accuracy.
+
+## Thesis
+You can access the complete thesis [here](https://github.com/coslu/gradientless-finetuning/blob/master/thesis/out/main.pdf).
 
 ## Installation
 1. Make sure to have [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) installed.
